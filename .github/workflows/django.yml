@@ -30,3 +30,8 @@ jobs:
         python manage.py test
       env:
         DJANGO_SECRET_KEY: ${{ env.DJANGO_SECRET_KEY }}
+    - name: Display Django Settings
+      run: |
+        echo "DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE"
+      env:
+        DJANGO_SETTINGS_MODULE: ${{ secrets.DJANGO_SETTINGS_MODULE }}
