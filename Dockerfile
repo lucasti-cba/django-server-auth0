@@ -31,5 +31,9 @@ RUN pwd
 # Debugging: Print environment variables
 RUN printenv
 
+# Run database migrations before starting the server
+RUN python manage.py makemigrations
+RUN python.manage.py migrate
+
 # Run the application
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "server.wsgi:application"]
